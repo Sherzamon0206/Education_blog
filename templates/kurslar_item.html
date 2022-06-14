@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+
+        <p>
+            <a href="{% url 'kurslar' %}"><i class="fas fa-arrow-left"></i> ortga</a>
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="not-bold">
+                    {{ kurs.name }}
+                </h2>
+
+                <ul class="text-muted">
+                    <li>{{ kurs.description }}</li>
+                    {% for Section in Sections %}
+                        <li>
+                            - {{ Section.name }};
+                        </li>
+                    {% endfor %}
+
+                    {#                    <li> {{ object.bolim2 }}</li>#}
+                    {#                    <li>   {{ object.bolim3 }}</li>#}
+                    {#                    <li>   {{ object.bolim4 }}</li>#}
+                    {#                    <li>   {{ object.bolim5 }}</li>#}
+                </ul>
+                <a href="#kursga_yozilish" class="btn bg-blur br-1 text-white px-2">Kursga ro’yxatdan o’tish</a>
+
+                <ul class="d-flex justify-content-sm-around my-3 text-muted">
+                    <li><img src="{% static 'img/weeks1.png' %}" alt=""> {{ kurs.course_duration }} oy</li>
+                    <li><img src="{% static 'img/time1.png' %}" alt=""> {{ kurs.time_course }} soatdan</li>
+                    {% if kurs.online_education %}
+                        <li><img src="{% static 'img/video-conference1.png' %}" alt="">Onlayn ta`lim mavjud</li>
+
+                    {% else %}
+                        <li><img src="{% static 'img/video-conference1.png' %}" alt="">Faqat Offline ta`lim mavjud</li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3 border-0 bg-muted">
+                    <div class="d-flex justify-content-center">
+                        <img src="{{ kurs.img.url }}" width="530" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 border-top my-4"></div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <h4 class="not-bold py-2"> Kurs dasturi</h4>
+                <p class="text-muted">
+                    {{ kurs.aim_of_course }}
+                </p>
+            </div>
+
+            <div class="col-md-7">
+                <ul class="list-group list-group-flush my-3">
+                    {% for section in Sections %}
+                        {% if kurs.img.url %}
+                            <li data-toggle="collapse" data-target="#item{{ section.id }}"
+                                class="list-group-item d-flex justify-content-md-between"><h5> {{ section.name }}</h5>
+                                <i class="fas fa-plus"></i></li>
+                            <div id="item{{ section.id }}" class="collapse text-muted pl-4">
+                                {{ section.description }}
+
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="bg-muted">
+       <div class="container py-5">
+          
+          <div>
+            <div class="container py-5">
+               <div class="row">
+                 <div class="col-md-3">
+                     <h3>Malakali o`qituvchilarimiz</h3>
+               </div>
+               <div class="col-md-9">
+                 <div class="owl-carousel owl-theme">
+                     <div class="card border-0  br-1" >
+                         <img src="{% static 'img/3.jpg' %}" alt="" class="br-1" height=198>
+                         <div class="card-body">
+                             <h5>Imomov Fozilbek Islomovich</h5>
+                             <p>Mobile dasturchi</p>
+                             <div class="d-flex">
+                                
+                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div> 
+                            
+                         </div>
+                         
+                     </div>
+         
+                     <div class="card border-0  br-1" >
+                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1" >
+                         <div class="card-body">
+                             <h5>Shodmonov Sardor Sirojiddin o'g'li</h5>
+                             <p>Web dasturchi</p>
+                             <div class="d-flex">
+                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div> 
+                            
+                         </div>
+                         
+                     </div>
+                     <div class="card border-0  br-1" >
+                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1">
+                         <div class="card-body">
+                             <h5>Radjabova Shaxlo Shodmonovna</h5>
+                             <p>English tili </p>
+                             <div class="d-flex">
+                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div> 
+                            
+                         </div>
+                         
+                     </div>
+                     <div class="card border-0  br-1" >
+                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1">
+                         <div class="card-body">
+                             <h5>Sayfuloyov Doston Donyor o'g'li</h5>
+                             <p>Web back end dasturchi</p>
+                             <div class="d-flex">
+                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div> 
+                            
+                         </div>
+                         
+                     </div>
+                     <div class="card border-0  br-1">
+                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1">
+                         <div class="card-body">
+                             <h5>Komilov Nematjon Qalandar o'g'li</h5>
+                             <p>Kompyuter savodxonligi</p>
+                             <div class="d-flex">
+                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div> 
+                            
+                         </div>
+                         
+                     </div>
+
+                     <div class="card border-0  br-1">
+                         <img src="{% static 'img/1.png' %}" alt="" class="br-1" height=198>
+                         <div class="card-body">
+                             <h5>Yorqulov Jonibek Yunus o'g'li</h5>
+                             <p>Python dasturchi</p>
+                             <div class="d-flex">
+                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div> 
+                            
+                         </div>
+                         
+                     </div>
+                  
+                 </div>
+                   
+               </div>
+               </div>
+            </div>
+         </div>
+          
+          </div>
+       </div> -->
+    </div>
+
+    <div class="container my-5">
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card p-5 bg-muted">
+
+                    <div class="row">
+                        <div class="col-md-6 border-right">
+                            <h3>kurs narxi</h3>
+                            <div class="d-flex text-blur align-items-baseline">
+                                <h3>{{ kurs.offline_price }} so'm /</h3>
+                                <p> oyiga</p>
+                            </div>
+                            {% if kurs.online_education %}
+                                <p>onlayn talim </p>
+                                <div class="text-blur">
+                                    <h5>{{ kurs.online_price }} so'm</h5>
+                                    <p>Onlayn ta’lim tizimiga kirish</p>
+                                </div>
+                            {% endif %}
+                            <ul class="d-flex justify-content-sm-around my-3 text-muted">
+                                <li><img src="img/weeks1.png" alt=""> {{ kurs.course_duration }} oy</li>
+                                <li><img src="img/time1.png" alt=""> {{ kurs.time_course }} soatdan</li>
+                                {% if kurs.online_education %}
+                                <li><img src="img/video-conference1.png" alt="">Onlayn ta`lim mavjud</li>
+                                {% else %}
+                                <li><img src="img/video-conference1.png" alt="">Onlayn ta`lim mavjud emas</li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                        <div class="col-md-6" id="kurs_register">
+                            <h6>Kursga yozilish</h6>
+                            <p class="text-muted">Ariza qoldirish uchun formani to’ldiring.
+                                Biz siz bilan tez orada bog’lanamiz.</p>
+
+                                <div class="form-group">
+                                    <input id="student_name" type="text" class="form-control" placeholder="Ismingiz">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="student_phone" class="form-control" placeholder="+998(__) ___-__-__">
+                                </div>
+                                <div class="form-group">
+                                    <button onclick="Registered_students('{{ kurs.name }}')" class="btn bg-blur text-white px-3 br-1">Kursga yozilish
+                                        </button>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    </div>
+
+{% endblock content %}

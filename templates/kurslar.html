@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+	<h2 class="not-bold">Kurslar</h2> 
+      <form action="" class="w-25">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fas fa-search"></i></span>
+              </div>
+          <input id = 'course_input' oninput="course_data()" type="search" placeholder="kurs bo`yicha qidiruv" class="form-control bg-light">
+        </div>
+    </form>
+  <div id = 'course_result'>
+                    </div>
+
+    <div class="w-100 border my-4"></div>
+
+    <div class="row">
+        <div class="col-md-2">
+              <h6 class="text-blur">
+                  Dasturlash kurslari
+              </h6>
+              
+            
+        </div>
+        <div class="col-md-10">
+            <h3 class="d-inline mx-3">Barcha kurslar</h3>
+            
+
+            
+            	<div class="row my-4">
+
+            	{% for Kurslar in Kurslar %}
+               
+                <div class="col-md-6 my-3">
+                	<a href="{% url 'kurslar_item' Kurslar.slug %}">
+                    <div class="card border-0 bg-muted pt-4 align-items-center">
+                        <div class="d-flex">
+                        	{% if Kurslar.img.url %}
+                            <img src="{{ Kurslar.img.url }}" width="150" height="100" alt="{{ Kurslar.name }}">
+                            {%  endif %}
+                            
+                            <div class="p-2">
+                                <h5>{{ Kurslar.name }}</h5>
+                                <p class="course-desc">
+                                    {{ Kurslar.description }} ...
+
+                                </p>
+                                <p>
+                                    {{ Kurslar.course_duration }} oy
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                
+
+                {% endfor %}
+
+
+                
+
+                
+            </div>
+        
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock content %}

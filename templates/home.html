@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    
+    <header class="group">
+        <div class="container align-items-center">
+          
+            
+            <div class="row h-100 align-items-center">
+                <div class="col-md-6">
+
+                    <p class="text d-inline">
+                        <img src="{% static 'img/Ellipse.png' %}" alt="" style="margin-bottom: 3px;"> 
+
+                         <b>Always invest in yourself.</b>
+                    </p>
+                    <h1 class="display-4 my-4" style="font-size: 40px;">Kelajak kasblarini o`rganishga xush kelibsiz</h1>
+                    <p >
+                        Zamonaviy va daromadli kasblardan biriga aylanib ulgurgan dasturlash sohasini biz bilan o`rganing va yangi marralarni zabt eting!
+                        <br>
+                        <!-- <h2 class="text-success">ICT Academy bilan muvaffaqiyat sari bir qadam !!!</h2>
+                        <br>
+                        <p>Sizdan tanlov bizdan kafolat !!!</p> -->
+
+
+                    </p>
+
+                    <form action="" class="my-5">
+                        <div class="input-group">
+                            <input  id = 'course_input' oninput="course_data()" type="search" class="form-control" placeholder="kurs bo`yicha qidiruv">
+                            <div class="input-group-append">
+                                <a href="#" class="btn btn-success br-1"><i class="fas fa-search mx-2"></i> Izlash</a>
+                            </div>
+                        </div>
+                    </form>
+                    <div id = 'course_result'>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center"><img src="{% static 'img/222.png' %}" alt="header-man"  width="100%" ></div>
+            </div>
+
+        </div>
+
+
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <p>
+                    Bugun internetsiz hayotimizni tasavvur qila olmaymiz. IT- information texnology. Bu olam ijtimoiy hayotimizni to'laqonli egallab ulgurdi. Ammo kuchli intellekt egalari ushbu jarayondan ham oqilona foydalanib qolishmoqda. Ya'ni dasturlashga doir bilim-tajribalarni o'zlashtirib, daromadli kasb egasiga aylanishmoqda. Har kuni IT-kompaniyalari tomonidan yuzlab loyihalar ishlab chiqiladi. Bu esa bevosita bilimli dasturchilarga bo'lgan ehtiyojning yuqoriligini ko'rsatadi.Siz ham kuchlilar qatorida bo'lishni istaysizmi? Bu juda oson. Dasturlash olamining sirlarini sizga ICT academy ochib beradi. ICT Academyda dasturlash bilan bog'liq barcha zamonaviy bilim-ko'nikmalarni egallashingiz mumkin. Bizning o'quv dasturlarimiz amaliyotga qaratilgan bo'lib, kurs materiallari aktualligi doimiy ravishda kuzatib boriladi. 
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/cR1FyHv_rJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-3 d-flex align-items-center">
+                <img src="{% static 'img/icon1.png' %}" width="60" alt="">
+                <div class="mx-2 my-5">
+                    <h6>Ishga joylashish kafolati</h6>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-center">
+                <img src="{% static 'img/icon2.png' %}" width="60" alt="">
+                <div class="mx-2 my-5">
+                    <h6>1000+ muvaffaqiyatli bitiruvchilar</h6>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-center">
+                <img src="{% static 'img/icon3.png' %}" width="60" alt="">
+                <div class="mx-2 my-5">
+                    <h6>Kurs yakunida sertifikat</h6>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-center">
+                <img src="{% static 'img/icon4.png' %}" width="60" alt="">
+                <div class="mx-2 my-5">
+                    <h6>ICT Academy bilan yuksak kelajak sari !!!</h6>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-gray">
+        <div class="container py-5">
+            <div class="row mb-5">
+
+                <div class="col-md-4">
+                    <h3>
+                        Dasturlash sohasidagi eng mashhur kurslar   
+                    </h3>
+                </div>
+            
+            </div>
+                <div class="row">
+                {% for Fanlar in Kurslar %}
+                <div class="col-md-6" >
+                    <div class="card border-0">
+                        <div class="d-flex">
+                            {% if Fanlar.img %}
+                            <img src="{{ Fanlar.img.url }}" alt="">
+                            {%  endif %}
+                            <div class="p-2"><h5><a href="{% url 'kurslar_item' Fanlar.slug %}">{{ Fanlar.name }}</a></h5>
+                                <p class="course-desc">
+                                    {{ Fanlar.description | slice:":50" }}
+
+                                </p>
+                                <p>
+                                    {{ Fanlar.course_duration }} oy
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+     <div class="container">
+       
+       
+        <div>
+                <div class="container py-5">
+               <div class="row">
+                 <div class="col-md-3">
+                     <h3>Malakali o`qituvchilarimiz</h3>
+               </div>
+               <div class="col-md-9">
+
+                 <div class="owl-carousel owl-theme">
+                     {% for teacher in Teachers %}
+                     <div class="card border-0 bg-muted br-1" >
+                         <img src="{{ teacher.image.url }}" alt="" class="br-1" height=198>
+                         <div class="card-body">
+                             <h5>{{ teacher.full_name }}</h5>
+                             <p>{{ teacher.course.name }}</p>
+                             <div class="d-flex">
+
+                                <a href="{{ teacher.telegram }}" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>
+                                <a href="{{ teacher.instagram }}" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="{{ teacher.facebook }}" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>
+                                <a href="tel:{{ teacher.phone }}" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>
+                            </div>
+
+                         </div>
+
+                     </div>
+                    {% endfor %}
+{#                     <div class="card border-0 bg-muted br-1" >#}
+{#                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1" >#}
+{#                         <div class="card-body">#}
+{#                             <h5>Shodmonov Sardor Sirojiddin o'g'li</h5>#}
+{#                             <p>Web dasturchi</p>#}
+{#                             <div class="d-flex">#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>#}
+{#                            </div>#}
+{##}
+{#                         </div>#}
+{##}
+{#                     </div>#}
+{#                     <div class="card border-0 bg-muted br-1" >#}
+{#                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1">#}
+{#                         <div class="card-body">#}
+{#                             <h5>Radjabova Shaxlo Shodmonovna</h5>#}
+{#                             <p>English tili </p>#}
+{#                             <div class="d-flex">#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>#}
+{#                            </div>#}
+{##}
+{#                         </div>#}
+{##}
+{#                     </div>#}
+{#                     <div class="card border-0 bg-muted br-1" >#}
+{#                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1">#}
+{#                         <div class="card-body">#}
+{#                             <h5>Sayfuloyov Doston Donyor o'g'li</h5>#}
+{#                             <p>Web back end dasturchi</p>#}
+{#                             <div class="d-flex">#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>#}
+{#                            </div>#}
+{##}
+{#                         </div>#}
+{##}
+{#                     </div>#}
+{#                     <div class="card border-0 bg-muted br-1">#}
+{#                         <img src="{% static 'img/image01.png' %}" alt="" class="br-1">#}
+{#                         <div class="card-body">#}
+{#                             <h5>Komilov Nematjon Qalandar o'g'li</h5>#}
+{#                             <p>Kompyuter savodxonligi</p>#}
+{#                             <div class="d-flex">#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>#}
+{#                            </div>#}
+{##}
+{#                         </div>#}
+{##}
+{#                     </div>#}
+{##}
+{#                     <div class="card border-0 bg-muted br-1">#}
+{#                         <img src="{% static 'img/1.png' %}" alt="" class="br-1" height=198>#}
+{#                         <div class="card-body">#}
+{#                             <h5>Yorqulov Jonibek Yunus o'g'li</h5>#}
+{#                             <p>Python dasturchi</p>#}
+{#                             <div class="d-flex">#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-telegram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-instagram fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fab fa-facebook fa-lg"></i></a>#}
+{#                                <a href="" class="teacher_contact"><i class="fas fa-phone fa-lg"></i></a>#}
+{#                            </div>#}
+{##}
+{#                         </div>#}
+
+                     </div>
+
+                 </div>
+
+               </div>
+               </div>
+            </div>
+         </div>
+
+
+         
+
+         {% comment %} <div class="row my-5">
+             <div class="col-md-5 px-5">
+                 <h4>Muvaffaqiyatli <br> bitiruvchilarimiz</h4>
+                 <div class="row justify-content-center align-items-center w-100 h-300" ><img src="{% static 'img/logo_ict.svg' %} " style="width: 300px; height: 150px;" alt=""></div>
+             </div>
+
+             
+
+             <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12 bg-muted br-1">
+                        <div class="d-flex align-items-center">
+                            <img src="{% static 'img/image02.png' %}"  alt="">
+                            <div class="pl-3">
+                                <p class="mt-3">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, esse nesciunt quo aliquid tempore fuga ratione eius itaque, ipsa voluptate nemo impedit incidunt dolor exercitationem debitis
+                                    
+                                </p>
+                                <p class="student-font">Izzat Nurullayev 26 yosh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 my-3 bg-muted br-1">
+                        <div class="d-flex align-items-center">
+                            <img src="{% static 'img/image02.png' %}"  alt="">
+                            <div class="pl-3">
+                                <p class="mt-3">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, esse nesciunt quo aliquid tempore fuga ratione eius itaque, ipsa voluptate nemo impedit incidunt dolor exercitationem debitis
+                                </p>
+                                <p class="student-font">Azim Erkinov, 24 yosh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 bg-muted br-1">
+                        <div class="d-flex align-items-center">
+                            <img src="{% static 'img/image02.png' %}"  alt="">
+                            <div class="pl-3">
+                                <p class="mt-3">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, esse nesciunt quo aliquid tempore fuga ratione eius itaque, ipsa voluptate nemo impedit incidunt dolor exercitationem debitis
+                                </p>
+                                <p class="student-font">Gayniddinov Shaxobiddin, 24 yosh</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+             </div>
+         </div> {% endcomment %}
+     </div>
+                
+            
+
+{% endblock content %}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static "fontawesome-free-5.15.4-web 3/css/all.min.css" %}">
+    <link rel="stylesheet" href="{% static  "main.css" %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-light w-100 my-3 fixed-top-sm d-flex justify-content-between">
+            <ul class="navbar-nav">
+                <a href="{% url 'home' %}" class="logo"> <img src="{% static  "img/logo1.png" %}" alt=""></a>
+                <li class="nav-item"><a href="{%  url 'kurslar' %}" class="nav-link active">Kurslar</a></li>
+                <li class="nav-item"><a href="{%  url 'xizmatlar' %}" class="nav-link">Xizmatlar</a></li>
+                <li class="nav-item dropdown"><a href="{%  url 'about' %}" class="nav-link dropdown-toggle" data-toggle="dropdown">Biz haqimizda</a>
+                 <div class="dropdown-menu">
+{#                     <a href="#" class="dropdown-item">item1</a>#}
+{#                     <a href="#" class="dropdown-item">item2</a>#}
+{#                     <a href="#" class="dropdown-item">item3</a>#}
+    
+                 </div> 
+                </li>
+                <li class="nav-item"><a href="{%  url 'yangiliklar' %}" class="nav-link">Yangiliklar</a></li>
+                <li class="nav-item"><a href="{%  url 'ictwork' %}" class="nav-link"><i class="fas fa-briefcase"></i> ICT works</a></li>
+            </ul>
+            <div class="mx-4">
+                <a href="" class="btn bg-blur br-1 text-white  p-2 mx-4"><i class="fas fa-sign-in-alt mx-1"></i> KIRISH</a>
+                <img src="{% static "img/call.png" %}" alt="">
+                <p class="d-inline mx-2">+95 143-00-13</p>
+            </div>
+
+        
+        
+        
+        
+        
+        </nav>
+
+
+        <p>
+            <a href="{% url 'yangiliklar' %}"><i class="fas fa-arrow-left"></i> ortga</a>
+        </p>
+
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="border-bottom">
+                    <h2>{{ News_detail.title }}</h2>
+                    <p>
+                        <small class="text-muted">  {{ News_detail.created_data.astimezone.hour}}:{{ News_detail.created_data.astimezone.minute }} &ensp;
+                            {{ News_detail.created_data.date }} &ensp;<i class="fas fa-eye"></i> &ensp;
+                            {{ News_detail.views }}  </small>
+                    </p>
+                </div>
+
+                
+                <div class="py-3">
+                <img src="{{ News_detail.img1.url }}" width="99%" alt="">
+                </div>
+{#                <p class="my-3">#}
+{#                    Жанубий кореялик техногигантнинг Galaxy A52 модели шу йилнинг март ойида тақдим этилган бўлиб, ҳозиргача энг оммабоп смартфонлар рейтингларидан тушмай келаётир. Samsung энди унинг s-версияси – Galaxy A52s қурилмасини тайёрлаган.#}
+{#                </p>#}
+{#                <p class="my-3">#}
+{#                    Тасдиқланмаган маълумотларга қараганда, Galaxy A52s диагоналига 6,5-дюймлик, тасвир узатиш аниқлиги Full HD+ форматидаги AMOLED-дисплейга эга. Samsung уни асосий сенсори 64 мегапикселлик бош камера ҳамда 32 мегапикселлик селфи сенсори билан жиҳозламоқда. Ток сиғими 4500 мА/соатлик аккумулятори эса 25 ваттлик технология асосида тезкор қувватланади. Қизиғи шундаки, расмий намойишини кутиб ҳам ўтирмасдан, Европадаги ретейлерлардан бири аллақачон ўзининг онлайн дўконида Samsung Galaxy A52s саҳифасини очди. У ердан ҳали расман тақдим этилмаган ушбу моделнинг корпус рангларини ҳамда хотира конфигурацияларини ҳамда ҳар бирининг нархини кўриб олиш мумкин:#}
+{#                </p>#}
+                <p class='my-3'>
+                    {{ txt1 }}
+                </p>
+                <div class="my-3">
+                    <img src="{{News_detail.img2.url}}" width="98%" alt="">
+                </div>
+{#                <p class="my-2">#}
+{#                    Бундан ташқари, Galaxy A52s яқиндагина Geekbench сервисида текшириб кўрилган. Бенчмарк маълумотлар базасида қолган қайдларга кўра, бу смартфон Snapdragon 778G процессори ҳамда 8 гигабайтлик тезкор хотира билан таъминланган.#}
+{#                </p>#}
+{#                <p class="my-2">#}
+{#                    Samsung Galaxy A52s расмий тақдимот санаси ҳозирча аниқ эмас.#}
+{#                </p>#}
+                <p class = 'my-2'>
+                    {{ txt2 }}
+                </p>
+                </div>
+
+            <div class="col-md-3">
+                <ul>
+                    <li class="mb-4"><h5>Сўнгги  янгиликлар</h5></li>
+                    {% for new in Last_News %}
+                 <li class="border-bottom my-3">  <p><a href="{% url 'news_detail' new.slug %}">{{ new.title }}</a></p>
+                     <small class="text-muted">  {{ new.created_data.astimezone.hour}}:{{ new.created_data.astimezone.minute }} &ensp;
+                         {{ new.created_data.date }} &ensp;<i class="fas fa-eye"></i> &ensp;
+                         {{ new.views }}  </p> </small>
+                         
+                 </li>
+                    {% endfor %}
+{#                 <li class="border-bottom my-3">  <p>Samsung тақдим этиб улгурмаган Galaxy A52s дўконга чиқди – нархлари ва асосий жиҳатлари аниқ!</p>#}
+{#                     <small class="text-muted">  19:00 &ensp; Бугун &ensp;<i class="fas fa-eye"></i> &ensp;#}
+{#                         450  </p> </small> #}
+{#                         #}
+{#                 </li>#}
+{#                 <li class="border-bottom my-3">  <p>ТОП-10: Ҳамёнбоп смартфонларнинг энг зўрлари (AnTuTu рейтинги, 2021 йил июль)</p>#}
+{#                     <small class="text-muted">  19:00 &ensp; Бугун &ensp;<i class="fas fa-eye"></i> &ensp;#}
+{#                         450  </p> </small> #}
+{#                         #}
+{#                 </li>#}
+{#                 <li class="border-bottom my-3">  <p>iPhone 13 Pro илк «жонли» суратларда: Ligthning порти йўқ!</p>#}
+{#                     <small class="text-muted">  19:00 &ensp; Бугун &ensp;<i class="fas fa-eye"></i> &ensp;#}
+{#                         450  </p> </small> #}
+{#                         #}
+{#                 </li>#}
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    
+
+
+   <footer class="bg-footer pt-5">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="img/Logo2.png" class="px-2" alt="">
+                <div class="my-3 d-flex justify-content-sm-around w-75 px-2">
+                    <img src="{% static   "img/Facebook.png"  %}" alt="">
+                    <img src="{% static  "img/Telegram.png"   %}" alt="">
+                    <img src="{% static   "img/Youtube.png"  %}" alt="">
+                    <img src="{% static  "img/Instagram.png"   %}" alt="">
+                </div>
+                <p class="student-font">
+                   2017-2020 © ICT ACADEMY
+                   Barcha huquqlar himoyalangan
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <ul class="text-secondary p-0">
+                     <li class="nav-link not-bold"> Menu</li>
+                    <li class="nav-link">Bosh sahifa</li>
+                    <li class="nav-link">Kurslar</li>
+                    <li class="nav-link">Xizmatlar</li>
+                    <li class="nav-link">Biz haqimizda</li>
+                    <li class="nav-link">Yangiliklar</li>
+                    <li class="nav-link">ICT works</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+               
+            <ul class="text-secondary p-0">
+                <li class="not-bold nav-link">Acconunt</li>
+                <li class="nav-link">Tizimga kirish</li>
+                <li class="nav-link">Ro`yxatdan o`tish</li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+          
+        <ul class="text-secondary p-0">
+            <li class="nav-link not-bold"> Kontaktlar</li>
+            <li class="nav-link"><i class="far fa-envelope"></i> ict_academy@gmail.com</li>
+            <li class="nav-link"><i class="fas fa-phone-alt"></i> Qo’ng’iroq buyurtma qilish</li>
+            <li class="nav-link"><h6 class="not-bold">+998 (95) 143-00-13</h6></li>
+            <li class="nav-link">Dushanbadan - Yakshanbagacha
+               8:00 dan 22:00</li>
+        </ul>
+    </div>
+
+        </div>
+    </div>
+</footer>
+</body>
+</html>

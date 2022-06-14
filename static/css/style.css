@@ -1,0 +1,194 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    /* background-color: aqua;  */
+}
+p.text{
+    background-color:  #fff;
+    border-radius: 20px;
+    display: inline;
+    padding: 3px 10px;
+    box-shadow: 1px 1px 5px #999;
+}
+.text + h1{
+    font-weight: bold;
+}
+
+.group{
+    /*background-size: cover;*/
+}
+
+.top{
+    color: aqua;
+}
+
+ul{
+    list-style-type: none;
+}
+.bg-gray{
+    background-color: #F2F4F8;
+}
+
+.course-desc{
+    color: #697077;
+}
+.student-font{
+    color: #697077;
+    font-size: 12px;
+}
+
+.bg-footer{
+    background-color: #F2F4F8;
+}
+
+.not-bold{
+    font-weight: bold;
+    color: black;
+}
+
+.bg-muted{
+    background-color: #F2F4F8;
+}
+.text-blur{
+    color: #1FC78F;
+}
+ul{
+    padding: 0;
+}
+
+.bg-blur{
+    background-color: #1FC78F;
+}
+.br-1{
+    border-radius: 10px;
+    padding-left:0;
+}
+.text-normal{
+    font-size: 14px;
+}
+
+input[id='search']:focus{
+   outline: none;
+   border: none;
+   width: 95%;
+}
+
+.h-300{
+    height: 350px;
+}
+.bg-gray .row img{
+    width: 120px;
+    height: 120px;
+}
+
+.col-md-6{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.header-man{
+  position: absolute;
+    left: 853px;
+  top: 152px;
+
+}
+a:hover{
+   text-decoration: none;
+    color: black;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.matn{
+    color: rgb(32, 206, 147);
+    
+    
+}
+
+.teacher_contact{
+    flex: content;
+    
+}
+
+.circle{
+    position: relative;
+    overflow: hidden; 
+   }
+   
+   .sidebar{
+       position: relative;
+       width: 100%;
+   }
+   
+   .circle.circle1{
+      width: 280px;
+      height:280px;
+      float: right;
+      border-radius: 50%;
+      shape-outside: circle();
+      margin: 20px;
+   }
+   
+   .circle img{
+       position: absolute;
+       top: 0px;
+       left: 0;
+       width: 100%;
+       height: 100%;
+   }
+   
+   .font{
+       text-align: justify;
+   }
+   
+   
+   
+   
+   .circle0{
+       position: relative;
+       overflow: hidden; 
+      }
+   
+   
+   
+   .circle0.circle01{
+       width: 280px;
+       height:280px;
+       float: right;
+       border-radius: 50%;
+       shape-outside: circle();
+       margin: 20px;
+    }
+   
+   
+   
+   .circle0.circle02{
+       position: relative;
+       top: -200px;
+         
+    }
+   
+    .circle0.circle02 img{
+       width: 280px;
+       height:280px;
+       float: left;
+       border-radius: 50%;
+       shape-outside: circle();
+       margin: 20px;
+    }
+   
+    p{
+        text-align: justify;
+    }
